@@ -111,7 +111,7 @@ class Fooman_EmailAttachments_Model_Order_Pdf_Order extends Mage_Sales_Model_Ord
         return $page;
     }
 
-    protected function _printComments($order, $page)
+    protected function _printComments($order, Zend_Pdf_Page $page)
     {
         if (Mage::helper('core')->isModuleEnabled('Magemaven_OrderComment')
             && ($order->getCustomerComment() || $order->getCustomerNote())
@@ -122,7 +122,18 @@ class Fooman_EmailAttachments_Model_Order_Pdf_Order extends Mage_Sales_Model_Ord
             $this->y -= 15;
             $page->drawText(Mage::helper('ordercomment')->__('Order Comment'), 35, $this->y, 'UTF-8');
             $this->y -= 15;
-            $page->drawText($comment, 35, $this->y, 'UTF-8');
+            $leftToPrint = explode(' ', $comment);
+            $availableWidth = $page->getWidth();
+            while (!empty($leftToPrint)) {
+                $currentLine = $leftToPrint;
+                $leftToPrint = array();
+                while ($this->widthForStringUsingFontSize(
+                        implode(' ', $currentLine), $page->getFont(), $page->getFontSize()
+                    ) > $availableWidth) {
+                    $leftToPrint[] = array_pop($currentLine);
+                }
+                $page->drawText(implode(' ', $currentLine), 35, $this->y, 'UTF-8');
+            }
         }
         return $page;
     }
