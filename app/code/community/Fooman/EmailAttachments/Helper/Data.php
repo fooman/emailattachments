@@ -55,6 +55,7 @@ class Fooman_EmailAttachments_Helper_Data extends Mage_Core_Helper_Abstract
     {
         try {
             $this->debug('ADDING ATTACHMENT: ' . $file);
+            $mailObj->getMail()->setType(Zend_Mime::MULTIPART_MIXED);
             $filePath = Mage::getBaseDir('media') . DS . 'pdfs' . DS .$file;
             if (file_exists($filePath)) {
                 $mailObj->getMail()->createAttachment(
@@ -100,12 +101,19 @@ class Fooman_EmailAttachments_Helper_Data extends Mage_Core_Helper_Abstract
                     $processor = $cmsHelper->getPageTemplateProcessor();
                     $content = $processor->filter($agreement->getContent());
                     if ($agreement->getIsHtml()) {
-                        $html = '<html><head><title>' . $agreement->getName() . '</title></head><body>'
+                        $html = '<html><head>
+                        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+                        <title>' . $agreement->getName() . '</title></head><body>'
                             . $content . '</body></html>';
-                        $mailObj->getMail()->createAttachment(
-                            $html, 'text/html', Zend_Mime::DISPOSITION_ATTACHMENT, Zend_Mime::ENCODING_BASE64,
-                            $this->_encodedFileName($agreement->getName() . '.html')
-                        );
+
+                        $mp = new Zend_Mime_Part($html);
+                        $mp->encoding = Zend_Mime::ENCODING_BASE64;
+                        $mp->type = 'text/html; charset=UTF-8';
+                        $mp->charset = 'UTF-8';
+                        $mp->disposition = Zend_Mime::DISPOSITION_ATTACHMENT;
+                        $mp->filename = $this->_encodedFileName($agreement->getName() . '.html');
+                        $mailObj->getMail()->addAttachment($mp);
+
                     } else {
                         $mailObj->getMail()->createAttachment(
                             Mage::helper('core')->escapeHtml($content), 'text/plain',
@@ -153,10 +161,10 @@ class Fooman_EmailAttachments_Helper_Data extends Mage_Core_Helper_Abstract
     {
         $block->addButton(
             'fooman_print', array(
-                'label'     => Mage::helper('sales')->__('Print'),
-                'class'     => 'save',
-                'onclick'   => 'setLocation(\'' . $this->getPrintUrl($block) . '\')'
-            )
+                'label'   => Mage::helper('sales')->__('Print'),
+                'class'   => 'save',
+                'onclick' => 'setLocation(\'' . $this->getPrintUrl($block) . '\')'
+            ), 0, 31
         );
     }
 
