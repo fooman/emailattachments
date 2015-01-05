@@ -164,7 +164,7 @@ class Fooman_EmailAttachments_Helper_Data extends Mage_Core_Helper_Abstract
                 'label'   => Mage::helper('sales')->__('Print'),
                 'class'   => 'save',
                 'onclick' => 'setLocation(\'' . $this->getPrintUrl($block) . '\')'
-            ), 0, 31
+            ), 0, 30
         );
     }
 

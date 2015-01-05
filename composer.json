@@ -153,6 +153,10 @@
                 "app/locale/th_TH/Fooman_EmailAttachments.csv"
             ],
             [
+                "app/locale/tr_TR/Fooman_EmailAttachments.csv",
+                "app/locale/tr_TR/Fooman_EmailAttachments.csv"
+            ],
+            [
                 "app/locale/zh_CN/Fooman_EmailAttachments.csv",
                 "app/locale/zh_CN/Fooman_EmailAttachments.csv"
             ]

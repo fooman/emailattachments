@@ -190,7 +190,7 @@ class Fooman_EmailAttachments_Model_Observer
                 $pdf, $mailTemplate, $this->getShipmentAttachmentName($shipment)
             );
             /*
-            $pdf = Mage::getModel('sales/order_pdf_shipment')->getPdf(
+            $pdf = Mage::getModel('sales/order_pdf_invoice')->getPdf(
                 $shipment->getOrder()->getInvoiceCollection()
             );
             $mailTemplate = Mage::helper('emailattachments')->addAttachment(

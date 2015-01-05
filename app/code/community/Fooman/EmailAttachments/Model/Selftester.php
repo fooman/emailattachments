@@ -82,6 +82,7 @@ class Fooman_EmailAttachments_Model_Selftester extends Fooman_Common_Model_Selft
             'app/locale/ca_ES/Fooman_EmailAttachments.csv',
             'app/locale/fi_FI/Fooman_EmailAttachments.csv',
             'app/locale/th_TH/Fooman_EmailAttachments.csv',
+            'app/locale/tr_TR/Fooman_EmailAttachments.csv',
             'app/locale/es_ES/Fooman_EmailAttachments.csv',
             'app/locale/ja_JP/Fooman_EmailAttachments.csv',
             'app/locale/hr_HR/Fooman_EmailAttachments.csv',
