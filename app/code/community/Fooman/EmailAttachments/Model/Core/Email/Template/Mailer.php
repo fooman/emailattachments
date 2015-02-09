@@ -30,6 +30,7 @@ class Fooman_EmailAttachments_Model_Core_Email_Template_Mailer extends Mage_Core
             $emailTemplate->addBcc($emailInfo->getBccEmails());
             // Set required design parameters and delegate email sending to Mage_Core_Model_Email_Template
             $emailTemplate->setDesignConfig(array('area' => 'frontend', 'store' => $this->getStoreId()))
+                ->setQueue($this->getQueue())
                 ->sendTransactional(
                     $this->getTemplateId(),
                     $this->getSender(),

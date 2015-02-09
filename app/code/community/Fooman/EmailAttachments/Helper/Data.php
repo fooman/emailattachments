@@ -28,7 +28,10 @@ class Fooman_EmailAttachments_Helper_Data extends Mage_Core_Helper_Abstract
         try {
             $this->debug('ADDING ATTACHMENT: ' . $name);
             $file = $pdf->render();
-            $mailObj->getMail()->createAttachment(
+            if (!($mailObj instanceof Zend_Mail)) {
+                $mailObj = $mailObj->getMail();
+            }
+            $mailObj->createAttachment(
                 $file,
                 'application/pdf',
                 Zend_Mime::DISPOSITION_ATTACHMENT,
@@ -58,7 +61,10 @@ class Fooman_EmailAttachments_Helper_Data extends Mage_Core_Helper_Abstract
             $mailObj->getMail()->setType(Zend_Mime::MULTIPART_MIXED);
             $filePath = Mage::getBaseDir('media') . DS . 'pdfs' . DS .$file;
             if (file_exists($filePath)) {
-                $mailObj->getMail()->createAttachment(
+                if (!($mailObj instanceof Zend_Mail)) {
+                    $mailObj = $mailObj->getMail();
+                }
+                $mailObj->createAttachment(
                     file_get_contents($filePath),
                     'application/pdf',
                     Zend_Mime::DISPOSITION_ATTACHMENT,
@@ -100,6 +106,9 @@ class Fooman_EmailAttachments_Helper_Data extends Mage_Core_Helper_Abstract
                 } else {
                     $processor = $cmsHelper->getPageTemplateProcessor();
                     $content = $processor->filter($agreement->getContent());
+                    if (!($mailObj instanceof Zend_Mail)) {
+                        $mailObj = $mailObj->getMail();
+                    }
                     if ($agreement->getIsHtml()) {
                         $html = '<html><head>
                         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -112,10 +121,9 @@ class Fooman_EmailAttachments_Helper_Data extends Mage_Core_Helper_Abstract
                         $mp->charset = 'UTF-8';
                         $mp->disposition = Zend_Mime::DISPOSITION_ATTACHMENT;
                         $mp->filename = $this->_encodedFileName($agreement->getName() . '.html');
-                        $mailObj->getMail()->addAttachment($mp);
-
+                        $mailObj->addAttachment($mp);
                     } else {
-                        $mailObj->getMail()->createAttachment(
+                        $mailObj->createAttachment(
                             Mage::helper('core')->escapeHtml($content), 'text/plain',
                             Zend_Mime::DISPOSITION_ATTACHMENT, Zend_Mime::ENCODING_BASE64,
                             $this->_encodedFileName($agreement->getName() . '.txt')

@@ -252,4 +252,39 @@ class Fooman_EmailAttachments_Model_Observer
         return Mage::helper('emailattachments')->getCreditmemoAttachmentName($creditmemo);
     }
 
+    /**
+     * listen to order email send event from queue to attach pdfs and agreements
+     *
+     * @param $observer
+     */
+    public function beforeSendQueuedOrder($observer)
+    {
+        $mailer = $observer->getEvent()->getMailer();
+        $message = $observer->getEvent()->getMessage();
+
+        if ($message->getEntityType() == 'order') {
+            $order = Mage::getModel('sales/order')->load($message->getEntityId());
+            $storeId = $order->getStoreId();
+            $update = false;
+            $configPath = $update ? 'order_comment' : 'order';
+
+            if (Mage::getStoreConfig('sales_email/' . $configPath . '/attachpdf', $storeId)) {
+                //Create Pdf and attach to email - play nicely with PdfCustomiser
+                $pdf = Mage::getModel('emailattachments/order_pdf_order')->getPdf(array($order));
+                $mailer = Mage::helper('emailattachments')->addAttachment(
+                    $pdf, $mailer, $this->getOrderAttachmentName($order)
+                );
+            }
+
+            if (Mage::getStoreConfig('sales_email/' . $configPath . '/attachagreement', $storeId)) {
+                $mailer = Mage::helper('emailattachments')->addAgreements($order->getStoreId(), $mailer);
+            }
+
+            $fileAttachment = Mage::getStoreConfig('sales_email/' . $configPath . '/attachfile', $storeId);
+            if ($fileAttachment) {
+                $mailer = Mage::helper('emailattachments')->addFileAttachment($fileAttachment, $mailer);
+            }
+        }
+    }
+
 }

@@ -30,6 +30,7 @@ class Fooman_EmailAttachments_Model_Selftester extends Fooman_Common_Model_Selft
     {
         return array(
             array("model","core/email_template_mailer","Fooman_EmailAttachments_Model_Core_Email_Template_Mailer"),
+            array("model","core/email_queue","Fooman_EmailAttachments_Model_Core_Email_Queue"),
         );
     }
 
@@ -50,6 +51,7 @@ class Fooman_EmailAttachments_Model_Selftester extends Fooman_Common_Model_Selft
             'app/code/community/Fooman/EmailAttachments/Model/Order/Pdf/Order.php',
             'app/code/community/Fooman/EmailAttachments/Model/Observer.php',
             'app/code/community/Fooman/EmailAttachments/Model/Core/Email/Template/Mailer.php',
+            'app/code/community/Fooman/EmailAttachments/Model/Core/Email/Queue.php',
             'app/code/community/Fooman/EmailAttachments/Model/System/File.php',
             'app/code/community/Fooman/EmailAttachments/Model/Selftester.php',
             'app/code/community/Fooman/EmailAttachments/LICENSE.txt',

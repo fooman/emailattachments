@@ -2,7 +2,7 @@
 <config>
     <modules>
         <Fooman_EmailAttachments>
-            <version>0.9.15</version>
+            <version>0.10.0</version>
             <depends>
             </depends>
         </Fooman_EmailAttachments>
@@ -16,6 +16,7 @@
             <core>
                 <rewrite>
                     <email_template_mailer>Fooman_EmailAttachments_Model_Core_Email_Template_Mailer</email_template_mailer>
+                    <email_queue>Fooman_EmailAttachments_Model_Core_Email_Queue</email_queue>
                 </rewrite>
             </core>
         </models>
@@ -36,6 +37,15 @@
             </emailattachments>
         </helpers>
         <events>
+            <fooman_emailattachments_before_send_queue>
+                <observers>
+                    <fooman_emailattachments_before_send_queue>
+                        <type>singleton</type>
+                        <class>emailattachments/observer</class>
+                        <method>beforeSendQueuedOrder</method>
+                    </fooman_emailattachments_before_send_queue>
+                </observers>
+            </fooman_emailattachments_before_send_queue>
             <fooman_emailattachments_before_send_order>
                 <observers>
                     <fooman_emailattachments_before_send_order>
