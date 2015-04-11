@@ -58,12 +58,12 @@ class Fooman_EmailAttachments_Helper_Data extends Mage_Core_Helper_Abstract
     {
         try {
             $this->debug('ADDING ATTACHMENT: ' . $file);
-            if (!($mailObj instanceof Zend_Mail)) {
-                $mailObj = $mailObj->getMail();
-            }
-            $mailObj->setType(Zend_Mime::MULTIPART_MIXED);
+            $mailObj->getMail()->setType(Zend_Mime::MULTIPART_MIXED);
             $filePath = Mage::getBaseDir('media') . DS . 'pdfs' . DS .$file;
             if (file_exists($filePath)) {
+                if (!($mailObj instanceof Zend_Mail)) {
+                    $mailObj = $mailObj->getMail();
+                }
                 $mailObj->createAttachment(
                     file_get_contents($filePath),
                     'application/pdf',
