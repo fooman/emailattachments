@@ -2,7 +2,7 @@
 <config>
     <modules>
         <Fooman_EmailAttachments>
-            <version>0.10.3</version>
+            <version>0.10.4</version>
             <depends>
             </depends>
         </Fooman_EmailAttachments>
@@ -17,6 +17,7 @@
                 <rewrite>
                     <email_template_mailer>Fooman_EmailAttachments_Model_Core_Email_Template_Mailer</email_template_mailer>
                     <email_queue>Fooman_EmailAttachments_Model_Core_Email_Queue</email_queue>
+                    <app_emulation>Fooman_EmailAttachments_Model_Core_App_Emulation</app_emulation>
                 </rewrite>
             </core>
         </models>
@@ -120,7 +121,6 @@
             </modules>
         </translate>
     </adminhtml>
-
     <admin>
         <routers>
             <emailattachments>

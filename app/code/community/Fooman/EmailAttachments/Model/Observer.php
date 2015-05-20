@@ -17,6 +17,14 @@ class Fooman_EmailAttachments_Model_Observer
 
     const KEY_PACKING_SLIP_PROCESSED = 'emailattachments-packingslip-processed';
 
+
+    protected function _fixUnsavedComments($object)
+    {
+        if (Mage::app()->getRequest()->getPost('comment')) {
+            $object->save();
+        }
+    }
+
     /**
      * observe core_block_abstract_prepare_layout_after to add a Print Orders
      * massaction to the actions dropdown menu
@@ -146,6 +154,7 @@ class Fooman_EmailAttachments_Model_Observer
         $configPath = $update ? 'invoice_comment' : 'invoice';
 
         if (Mage::getStoreConfig('sales_email/' . $configPath . '/attachpdf', $storeId)) {
+            $this->_fixUnsavedComments($invoice);
             //Create Pdf and attach to email - play nicely with PdfCustomiser
             $pdf = Mage::getModel('sales/order_pdf_invoice')->getPdf(array($invoice));
             $mailTemplate = Mage::helper('emailattachments')->addAttachment(
@@ -184,6 +193,7 @@ class Fooman_EmailAttachments_Model_Observer
         $configPath = $update ? 'shipment_comment' : 'shipment';
 
         if (Mage::getStoreConfig('sales_email/' . $configPath . '/attachpdf', $storeId)) {
+            $this->_fixUnsavedComments($shipment);
             //Create Pdf and attach to email - play nicely with PdfCustomiser
             $pdf = Mage::getModel('sales/order_pdf_shipment')->getPdf(array($shipment));
             $mailTemplate = Mage::helper('emailattachments')->addAttachment(
@@ -230,6 +240,7 @@ class Fooman_EmailAttachments_Model_Observer
         $configPath = $update ? 'creditmemo_comment' : 'creditmemo';
 
         if (Mage::getStoreConfig('sales_email/' . $configPath . '/attachpdf', $storeId)) {
+            $this->_fixUnsavedComments($creditmemo);
             //Create Pdf and attach to email - play nicely with PdfCustomiser
             $pdf = Mage::getModel('sales/order_pdf_creditmemo')->getPdf(array($creditmemo));
             $mailTemplate = Mage::helper('emailattachments')->addAttachment(

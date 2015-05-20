@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @author     Kristof Ringleff
  * @package    Fooman_EmailAttachments
@@ -7,18 +8,17 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-
 class Fooman_EmailAttachments_Model_Selftester extends Fooman_Common_Model_Selftester
 {
 
     /**
      * get extension version information
      */
-    public function _getVersions ()
+    public function _getVersions()
     {
         parent::_getVersions();
         $this->messages[] = "Fooman_EmailAttachments Config version: "
-            . (string) Mage::getConfig()->getModuleConfig('Fooman_EmailAttachments')->version;
+            . (string)Mage::getConfig()->getModuleConfig('Fooman_EmailAttachments')->version;
     }
 
     /**
@@ -26,19 +26,24 @@ class Fooman_EmailAttachments_Model_Selftester extends Fooman_Common_Model_Selft
      *
      * @return array
      */
-    public function _getRewrites ()
+    public function _getRewrites()
     {
-        return array(
-            array("model","core/email_template_mailer","Fooman_EmailAttachments_Model_Core_Email_Template_Mailer"),
-            array("model","core/email_queue","Fooman_EmailAttachments_Model_Core_Email_Queue"),
+        $rewrites = array(
+            array("model", "core/email_template_mailer", "Fooman_EmailAttachments_Model_Core_Email_Template_Mailer")
         );
+        if ($this->_hasQueueSupport()) {
+            array_push($rewrites, array("model", "core/email_queue", "Fooman_EmailAttachments_Model_Core_Email_Queue"));
+
+        }
+        return $rewrites;
     }
 
     /**
      * list of extension files
+     *
      * @return array
      */
-    public function _getFiles ()
+    public function _getFiles()
     {
         //REPLACE
         return array(
@@ -50,6 +55,7 @@ class Fooman_EmailAttachments_Model_Selftester extends Fooman_Common_Model_Selft
             'app/code/community/Fooman/EmailAttachments/LICENSE.txt',
             'app/code/community/Fooman/EmailAttachments/controllers/Customer/OrderController.php',
             'app/code/community/Fooman/EmailAttachments/controllers/Admin/OrderController.php',
+            'app/code/community/Fooman/EmailAttachments/Model/Core/App/Emulation.php',
             'app/code/community/Fooman/EmailAttachments/Model/Core/Email/Template/Mailer.php',
             'app/code/community/Fooman/EmailAttachments/Model/Core/Email/Queue.php',
             'app/code/community/Fooman/EmailAttachments/Model/Order/Pdf/Order.php',
@@ -92,6 +98,13 @@ class Fooman_EmailAttachments_Model_Selftester extends Fooman_Common_Model_Selft
             'app/locale/pl_PL/Fooman_EmailAttachments.csv',
         );
         //REPLACE_END
+    }
+
+    protected function _hasQueueSupport()
+    {
+        return file_exists(
+            Mage::getConfig()->getModuleDir('', 'Mage_Core') . DS . 'Model' . DS . 'Email' . DS . 'Queue.php'
+        );
     }
 }
 
