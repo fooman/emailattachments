@@ -231,6 +231,16 @@ class Fooman_EmailAttachments_Helper_Data extends Mage_Core_Helper_Abstract
 
     public function getCreditmemoAttachmentName($creditmemo)
     {
-        return Mage::helper('sales')->__('Credit Memo') . "_" . $creditmemo->getIncrementId();
+        return Mage::helper('sales')->__('Credit Memo').'_'.$creditmemo->getIncrementId();
+    }
+
+    /**
+     * check if Aschroder_SMTPPro is available and enabled.
+     *
+     * @return bool
+     */
+    public function isAschroderSMTPProEnabled()
+    {
+        return (bool) (Mage::helper('core')->isModuleEnabled('Aschroder_SMTPPro') && class_exists('Aschroder_SMTPPro_Model_Core_Email_Queue'));
     }
 }
