@@ -86,29 +86,11 @@ class Fooman_EmailAttachments_Model_Observer
             $mailTemplate = Mage::helper('emailattachments')->addAgreements($order->getStoreId(), $mailTemplate);
         }
 
-        $fileAttachment = Mage::getStoreConfig('sales_email/' . $configPath . '/attachfile', $storeId);
-        if ($fileAttachment) {
-            $mailTemplate = Mage::helper('emailattachments')->addFileAttachment($fileAttachment, $mailTemplate);
-        }
-        
-        $fileAttachment = Mage::getStoreConfig('sales_email/' . $configPath . '/attachfile_1', $storeId);
-        if ($fileAttachment) {
-            $mailTemplate = Mage::helper('emailattachments')->addFileAttachment($fileAttachment, $mailTemplate);
-        }
-        
-        $fileAttachment = Mage::getStoreConfig('sales_email/' . $configPath . '/attachfile_2', $storeId);
-        if ($fileAttachment) {
-            $mailTemplate = Mage::helper('emailattachments')->addFileAttachment($fileAttachment, $mailTemplate);
-        }
-        
-        $fileAttachment = Mage::getStoreConfig('sales_email/' . $configPath . '/attachfile_3', $storeId);
-        if ($fileAttachment) {
-            $mailTemplate = Mage::helper('emailattachments')->addFileAttachment($fileAttachment, $mailTemplate);
-        }
-        
-        $fileAttachment = Mage::getStoreConfig('sales_email/' . $configPath . '/attachfile_4', $storeId);
-        if ($fileAttachment) {
-            $mailTemplate = Mage::helper('emailattachments')->addFileAttachment($fileAttachment, $mailTemplate);
+        for ($i = 0; $i <= 5; $i++) {
+            $fileAttachment = Mage::getStoreConfig('sales_email/'.$configPath.'/attachfile_'.$i, $storeId);
+            if ($fileAttachment) {
+                $mailTemplate = Mage::helper('emailattachments')->addFileAttachment($fileAttachment, $mailTemplate);
+            }
         }
 
     }
@@ -189,29 +171,11 @@ class Fooman_EmailAttachments_Model_Observer
             $mailTemplate = Mage::helper('emailattachments')->addAgreements($storeId, $mailTemplate);
         }
 
-        $fileAttachment = Mage::getStoreConfig('sales_email/' . $configPath . '/attachfile', $storeId);
-        if ($fileAttachment) {
-            $mailTemplate = Mage::helper('emailattachments')->addFileAttachment($fileAttachment, $mailTemplate);
-        }
-        
-        $fileAttachment = Mage::getStoreConfig('sales_email/' . $configPath . '/attachfile_1', $storeId);
-        if ($fileAttachment) {
-            $mailTemplate = Mage::helper('emailattachments')->addFileAttachment($fileAttachment, $mailTemplate);
-        }
-        
-        $fileAttachment = Mage::getStoreConfig('sales_email/' . $configPath . '/attachfile_2', $storeId);
-        if ($fileAttachment) {
-            $mailTemplate = Mage::helper('emailattachments')->addFileAttachment($fileAttachment, $mailTemplate);
-        }
-        
-        $fileAttachment = Mage::getStoreConfig('sales_email/' . $configPath . '/attachfile_3', $storeId);
-        if ($fileAttachment) {
-            $mailTemplate = Mage::helper('emailattachments')->addFileAttachment($fileAttachment, $mailTemplate);
-        }
-        
-        $fileAttachment = Mage::getStoreConfig('sales_email/' . $configPath . '/attachfile_4', $storeId);
-        if ($fileAttachment) {
-            $mailTemplate = Mage::helper('emailattachments')->addFileAttachment($fileAttachment, $mailTemplate);
+        for ($i = 0; $i <= 5; $i++) {
+            $fileAttachment = Mage::getStoreConfig('sales_email/'.$configPath.'/attachfile_'.$i, $storeId);
+            if ($fileAttachment) {
+                $mailTemplate = Mage::helper('emailattachments')->addFileAttachment($fileAttachment, $mailTemplate);
+            }
         }
     }
 
@@ -256,29 +220,11 @@ class Fooman_EmailAttachments_Model_Observer
             $mailTemplate = Mage::helper('emailattachments')->addAgreements($storeId, $mailTemplate);
         }
 
-        $fileAttachment = Mage::getStoreConfig('sales_email/' . $configPath . '/attachfile', $storeId);
-        if ($fileAttachment) {
-            $mailTemplate = Mage::helper('emailattachments')->addFileAttachment($fileAttachment, $mailTemplate);
-        }
-        
-        $fileAttachment = Mage::getStoreConfig('sales_email/' . $configPath . '/attachfile_1', $storeId);
-        if ($fileAttachment) {
-            $mailTemplate = Mage::helper('emailattachments')->addFileAttachment($fileAttachment, $mailTemplate);
-        }
-        
-        $fileAttachment = Mage::getStoreConfig('sales_email/' . $configPath . '/attachfile_2', $storeId);
-        if ($fileAttachment) {
-            $mailTemplate = Mage::helper('emailattachments')->addFileAttachment($fileAttachment, $mailTemplate);
-        }
-        
-        $fileAttachment = Mage::getStoreConfig('sales_email/' . $configPath . '/attachfile_3', $storeId);
-        if ($fileAttachment) {
-            $mailTemplate = Mage::helper('emailattachments')->addFileAttachment($fileAttachment, $mailTemplate);
-        }
-        
-        $fileAttachment = Mage::getStoreConfig('sales_email/' . $configPath . '/attachfile_4', $storeId);
-        if ($fileAttachment) {
-            $mailTemplate = Mage::helper('emailattachments')->addFileAttachment($fileAttachment, $mailTemplate);
+        for ($i = 0; $i <= 5; $i++) {
+            $fileAttachment = Mage::getStoreConfig('sales_email/'.$configPath.'/attachfile_'.$i, $storeId);
+            if ($fileAttachment) {
+                $mailTemplate = Mage::helper('emailattachments')->addFileAttachment($fileAttachment, $mailTemplate);
+            }
         }
     }
 
@@ -313,29 +259,11 @@ class Fooman_EmailAttachments_Model_Observer
             $mailTemplate = Mage::helper('emailattachments')->addAgreements($storeId, $mailTemplate);
         }
 
-        $fileAttachment = Mage::getStoreConfig('sales_email/' . $configPath . '/attachfile', $storeId);
-        if ($fileAttachment) {
-            $mailTemplate = Mage::helper('emailattachments')->addFileAttachment($fileAttachment, $mailTemplate);
-        }
-        
-        $fileAttachment = Mage::getStoreConfig('sales_email/' . $configPath . '/attachfile_1', $storeId);
-        if ($fileAttachment) {
-            $mailTemplate = Mage::helper('emailattachments')->addFileAttachment($fileAttachment, $mailTemplate);
-        }
-        
-        $fileAttachment = Mage::getStoreConfig('sales_email/' . $configPath . '/attachfile_2', $storeId);
-        if ($fileAttachment) {
-            $mailTemplate = Mage::helper('emailattachments')->addFileAttachment($fileAttachment, $mailTemplate);
-        }
-        
-        $fileAttachment = Mage::getStoreConfig('sales_email/' . $configPath . '/attachfile_3', $storeId);
-        if ($fileAttachment) {
-            $mailTemplate = Mage::helper('emailattachments')->addFileAttachment($fileAttachment, $mailTemplate);
-        }
-        
-        $fileAttachment = Mage::getStoreConfig('sales_email/' . $configPath . '/attachfile_4', $storeId);
-        if ($fileAttachment) {
-            $mailTemplate = Mage::helper('emailattachments')->addFileAttachment($fileAttachment, $mailTemplate);
+        for ($i = 0; $i <= 5; $i++) {
+            $fileAttachment = Mage::getStoreConfig('sales_email/'.$configPath.'/attachfile_'.$i, $storeId);
+            if ($fileAttachment) {
+                $mailTemplate = Mage::helper('emailattachments')->addFileAttachment($fileAttachment, $mailTemplate);
+            }
         }
     }
 
@@ -372,29 +300,11 @@ class Fooman_EmailAttachments_Model_Observer
                 $mailer = Mage::helper('emailattachments')->addAgreements($order->getStoreId(), $mailer);
             }
 
-            $fileAttachment = Mage::getStoreConfig('sales_email/' . $configPath . '/attachfile', $storeId);
-            if ($fileAttachment) {
-                $mailer = Mage::helper('emailattachments')->addFileAttachment($fileAttachment, $mailer);
-            }
-            
-            $fileAttachment = Mage::getStoreConfig('sales_email/' . $configPath . '/attachfile_1', $storeId);
-            if ($fileAttachment) {
-                $mailer = Mage::helper('emailattachments')->addFileAttachment($fileAttachment, $mailer);
-            }
-            
-            $fileAttachment = Mage::getStoreConfig('sales_email/' . $configPath . '/attachfile_2', $storeId);
-            if ($fileAttachment) {
-                $mailer = Mage::helper('emailattachments')->addFileAttachment($fileAttachment, $mailer);
-            }
-            
-            $fileAttachment = Mage::getStoreConfig('sales_email/' . $configPath . '/attachfile_3', $storeId);
-            if ($fileAttachment) {
-                $mailer = Mage::helper('emailattachments')->addFileAttachment($fileAttachment, $mailer);
-            }
-            
-            $fileAttachment = Mage::getStoreConfig('sales_email/' . $configPath . '/attachfile_4', $storeId);
-            if ($fileAttachment) {
-                $mailer = Mage::helper('emailattachments')->addFileAttachment($fileAttachment, $mailer);
+            for ($i = 0; $i <= 5; $i++) {
+                $fileAttachment = Mage::getStoreConfig('sales_email/'.$configPath.'/attachfile_'.$i, $storeId);
+                if ($fileAttachment) {
+                    $mailTemplate = Mage::helper('emailattachments')->addFileAttachment($fileAttachment, $mailTemplate);
+                }
             }
         }
     }
