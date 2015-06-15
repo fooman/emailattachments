@@ -77,18 +77,18 @@ class Fooman_EmailAttachments_Model_Observer
         if (Mage::getStoreConfig('sales_email/' . $configPath . '/attachpdf', $storeId)) {
             //Create Pdf and attach to email - play nicely with PdfCustomiser
             $pdf = Mage::getModel('emailattachments/order_pdf_order')->getPdf(array($order));
-            $mailTemplate = Mage::helper('emailattachments')->addAttachment(
+            Mage::helper('emailattachments')->addAttachment(
                 $pdf, $mailTemplate, $this->getOrderAttachmentName($order)
             );
         }
 
         if (Mage::getStoreConfig('sales_email/' . $configPath . '/attachagreement', $storeId)) {
-            $mailTemplate = Mage::helper('emailattachments')->addAgreements($order->getStoreId(), $mailTemplate);
+            Mage::helper('emailattachments')->addAgreements($order->getStoreId(), $mailTemplate);
         }
 
         $fileAttachment = Mage::getStoreConfig('sales_email/' . $configPath . '/attachfile', $storeId);
         if ($fileAttachment) {
-            $mailTemplate = Mage::helper('emailattachments')->addFileAttachment($fileAttachment, $mailTemplate);
+            Mage::helper('emailattachments')->addFileAttachment($fileAttachment, $mailTemplate);
         }
     }
 
@@ -120,7 +120,7 @@ class Fooman_EmailAttachments_Model_Observer
         if ($emails && Mage::getStoreConfig('sales_email/' . $configPath . '/sendpackingslip', $storeId)) {
             $template = Mage::getStoreConfig(self::XML_PATH_ORDER_PACKINGSLIP_TEMPLATE, $storeId);
             $pdf = Mage::getModel('sales/order_pdf_shipment')->getPdf(array(), array($order->getId()));
-            $mailTemplate = Mage::helper('emailattachments')->addAttachment(
+            Mage::helper('emailattachments')->addAttachment(
                 $pdf, $mailTemplate, Mage::helper('sales')->__('Shipment') . "_" . $order->getIncrementId()
             );
             foreach ($emails as $email) {
@@ -157,7 +157,7 @@ class Fooman_EmailAttachments_Model_Observer
             $this->_fixUnsavedComments($invoice);
             //Create Pdf and attach to email - play nicely with PdfCustomiser
             $pdf = Mage::getModel('sales/order_pdf_invoice')->getPdf(array($invoice));
-            $mailTemplate = Mage::helper('emailattachments')->addAttachment(
+            Mage::helper('emailattachments')->addAttachment(
                 $pdf,
                 $mailTemplate,
                 $this->getInvoiceAttachmentName($invoice)
@@ -165,12 +165,12 @@ class Fooman_EmailAttachments_Model_Observer
         }
 
         if (Mage::getStoreConfig('sales_email/' . $configPath . '/attachagreement', $storeId)) {
-            $mailTemplate = Mage::helper('emailattachments')->addAgreements($storeId, $mailTemplate);
+            Mage::helper('emailattachments')->addAgreements($storeId, $mailTemplate);
         }
 
         $fileAttachment = Mage::getStoreConfig('sales_email/' . $configPath . '/attachfile', $storeId);
         if ($fileAttachment) {
-            $mailTemplate = Mage::helper('emailattachments')->addFileAttachment($fileAttachment, $mailTemplate);
+            Mage::helper('emailattachments')->addFileAttachment($fileAttachment, $mailTemplate);
         }
     }
 
@@ -196,14 +196,14 @@ class Fooman_EmailAttachments_Model_Observer
             $this->_fixUnsavedComments($shipment);
             //Create Pdf and attach to email - play nicely with PdfCustomiser
             $pdf = Mage::getModel('sales/order_pdf_shipment')->getPdf(array($shipment));
-            $mailTemplate = Mage::helper('emailattachments')->addAttachment(
+            Mage::helper('emailattachments')->addAttachment(
                 $pdf, $mailTemplate, $this->getShipmentAttachmentName($shipment)
             );
             /*
             $pdf = Mage::getModel('sales/order_pdf_invoice')->getPdf(
                 $shipment->getOrder()->getInvoiceCollection()
             );
-            $mailTemplate = Mage::helper('emailattachments')->addAttachment(
+            Mage::helper('emailattachments')->addAttachment(
                 $pdf,
                 $mailTemplate,
                 Mage::helper('sales')->__('Invoices for Order') . "_" . $shipment->getOrder()->getIncrementId()
@@ -212,12 +212,12 @@ class Fooman_EmailAttachments_Model_Observer
         }
 
         if (Mage::getStoreConfig('sales_email/' . $configPath . '/attachagreement', $storeId)) {
-            $mailTemplate = Mage::helper('emailattachments')->addAgreements($storeId, $mailTemplate);
+            Mage::helper('emailattachments')->addAgreements($storeId, $mailTemplate);
         }
 
         $fileAttachment = Mage::getStoreConfig('sales_email/' . $configPath . '/attachfile', $storeId);
         if ($fileAttachment) {
-            $mailTemplate = Mage::helper('emailattachments')->addFileAttachment($fileAttachment, $mailTemplate);
+            Mage::helper('emailattachments')->addFileAttachment($fileAttachment, $mailTemplate);
         }
     }
 
@@ -243,18 +243,18 @@ class Fooman_EmailAttachments_Model_Observer
             $this->_fixUnsavedComments($creditmemo);
             //Create Pdf and attach to email - play nicely with PdfCustomiser
             $pdf = Mage::getModel('sales/order_pdf_creditmemo')->getPdf(array($creditmemo));
-            $mailTemplate = Mage::helper('emailattachments')->addAttachment(
+            Mage::helper('emailattachments')->addAttachment(
                 $pdf, $mailTemplate, $this->getCreditmemoAttachmentName($creditmemo)
             );
         }
 
         if (Mage::getStoreConfig('sales_email/' . $configPath . '/attachagreement', $storeId)) {
-            $mailTemplate = Mage::helper('emailattachments')->addAgreements($storeId, $mailTemplate);
+            Mage::helper('emailattachments')->addAgreements($storeId, $mailTemplate);
         }
 
         $fileAttachment = Mage::getStoreConfig('sales_email/' . $configPath . '/attachfile', $storeId);
         if ($fileAttachment) {
-            $mailTemplate = Mage::helper('emailattachments')->addFileAttachment($fileAttachment, $mailTemplate);
+            Mage::helper('emailattachments')->addFileAttachment($fileAttachment, $mailTemplate);
         }
     }
 
@@ -282,18 +282,18 @@ class Fooman_EmailAttachments_Model_Observer
             if (Mage::getStoreConfig('sales_email/' . $configPath . '/attachpdf', $storeId)) {
                 //Create Pdf and attach to email - play nicely with PdfCustomiser
                 $pdf = Mage::getModel('emailattachments/order_pdf_order')->getPdf(array($order));
-                $mailer = Mage::helper('emailattachments')->addAttachment(
+                Mage::helper('emailattachments')->addAttachment(
                     $pdf, $mailer, $this->getOrderAttachmentName($order)
                 );
             }
 
             if (Mage::getStoreConfig('sales_email/' . $configPath . '/attachagreement', $storeId)) {
-                $mailer = Mage::helper('emailattachments')->addAgreements($order->getStoreId(), $mailer);
+                 Mage::helper('emailattachments')->addAgreements($order->getStoreId(), $mailer);
             }
 
             $fileAttachment = Mage::getStoreConfig('sales_email/' . $configPath . '/attachfile', $storeId);
             if ($fileAttachment) {
-                $mailer = Mage::helper('emailattachments')->addFileAttachment($fileAttachment, $mailer);
+                Mage::helper('emailattachments')->addFileAttachment($fileAttachment, $mailer);
             }
         }
     }
