@@ -21,7 +21,7 @@
         <sales_email>
             <groups>
                 <order>
-                     <fields>
+                    <fields>
                         <attachpdf translate="label">
                             <label>Attach Order as PDF</label>
                             <tooltip>When set to Yes, your invoice pdf document will be
@@ -45,52 +45,100 @@
                             <show_in_website>1</show_in_website>
                             <show_in_store>1</show_in_store>
                         </attachagreement>
-                         <attachfile translate="label">
-                             <label>Attach Pdf File</label>
-                             <tooltip>Choose to upload any pdf document to automatically attach to the email - for example,
+                        <attachfile_1 translate="label">
+                            <label>Attach Pdf File</label>
+                            <tooltip>Choose to upload any pdf document to automatically attach to the email - for example,
                                 your return policy, a coupon or voucher, your latest newsletter.</tooltip>
-                             <frontend_type>file</frontend_type>
-                             <upload_dir config="system/filesystem/media">pdfs</upload_dir>
-                             <backend_model>emailattachments/system_file</backend_model>
-                             <sort_order>75</sort_order>
-                             <show_in_default>1</show_in_default>
-                             <show_in_website>1</show_in_website>
-                             <show_in_store>1</show_in_store>
-                         </attachfile>
-                         <sendpackingslip translate="label">
-                             <if_module_enabled>Fooman_PdfCustomiser</if_module_enabled>
-                             <label>Send Packing Slip</label>
-                             <frontend_type>select</frontend_type>
-                             <source_model>adminhtml/system_config_source_yesno</source_model>
-                             <sort_order>85</sort_order>
-                             <show_in_default>1</show_in_default>
-                             <show_in_website>1</show_in_website>
-                             <show_in_store>1</show_in_store>
-                         </sendpackingslip>
-                         <shipment_template translate="label">
-                             <if_module_enabled>Fooman_PdfCustomiser</if_module_enabled>
-                             <label>Packingslip Template</label>
-                             <frontend_type>select</frontend_type>
-                             <source_model>adminhtml/system_config_source_email_template</source_model>
-                             <sort_order>86</sort_order>
-                             <show_in_default>1</show_in_default>
-                             <show_in_website>1</show_in_website>
-                             <show_in_store>1</show_in_store>
-                         </shipment_template>
-                         <shipment_to translate="label comment">
-                             <if_module_enabled>Fooman_PdfCustomiser</if_module_enabled>
-                             <label>Send Packingslip To</label>
-                             <frontend_type>text</frontend_type>
-                             <sort_order>87</sort_order>
-                             <show_in_default>1</show_in_default>
-                             <show_in_website>1</show_in_website>
-                             <show_in_store>1</show_in_store>
-                             <comment>Comma-separated.</comment>
-                         </shipment_to>
-                     </fields>
+                            <frontend_type>file</frontend_type>
+                            <upload_dir config="system/filesystem/media">pdfs</upload_dir>
+                            <backend_model>emailattachments/system_file</backend_model>
+                            <sort_order>75</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </attachfile_1>
+                        <attachfile_2 translate="label">
+                            <label>Attach Pdf File</label>
+                            <tooltip>Choose to upload any pdf document to automatically attach to the email - for example,
+                                your return policy, a coupon or voucher, your latest newsletter.</tooltip>
+                            <frontend_type>file</frontend_type>
+                            <upload_dir config="system/filesystem/media">pdfs</upload_dir>
+                            <backend_model>emailattachments/system_file</backend_model>
+                            <sort_order>75</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </attachfile_2>
+                        <attachfile_3 translate="label">
+                            <label>Attach Pdf File</label>
+                            <tooltip>Choose to upload any pdf document to automatically attach to the email - for example,
+                                your return policy, a coupon or voucher, your latest newsletter.</tooltip>
+                            <frontend_type>file</frontend_type>
+                            <upload_dir config="system/filesystem/media">pdfs</upload_dir>
+                            <backend_model>emailattachments/system_file</backend_model>
+                            <sort_order>75</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </attachfile_3>
+                        <attachfile_4 translate="label">
+                            <label>Attach Pdf File</label>
+                            <tooltip>Choose to upload any pdf document to automatically attach to the email - for example,
+                                your return policy, a coupon or voucher, your latest newsletter.</tooltip>
+                            <frontend_type>file</frontend_type>
+                            <upload_dir config="system/filesystem/media">pdfs</upload_dir>
+                            <backend_model>emailattachments/system_file</backend_model>
+                            <sort_order>75</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </attachfile_4>
+                        <attachfile_5 translate="label">
+                            <label>Attach Pdf File</label>
+                            <tooltip>Choose to upload any pdf document to automatically attach to the email - for example,
+                                your return policy, a coupon or voucher, your latest newsletter.</tooltip>
+                            <frontend_type>file</frontend_type>
+                            <upload_dir config="system/filesystem/media">pdfs</upload_dir>
+                            <backend_model>emailattachments/system_file</backend_model>
+                            <sort_order>75</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </attachfile_5>
+                        <sendpackingslip translate="label">
+                            <if_module_enabled>Fooman_PdfCustomiser</if_module_enabled>
+                            <label>Send Packing Slip</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>85</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </sendpackingslip>
+                        <shipment_template translate="label">
+                            <if_module_enabled>Fooman_PdfCustomiser</if_module_enabled>
+                            <label>Packingslip Template</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_email_template</source_model>
+                            <sort_order>86</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </shipment_template>
+                        <shipment_to translate="label comment">
+                            <if_module_enabled>Fooman_PdfCustomiser</if_module_enabled>
+                            <label>Send Packingslip To</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>87</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Comma-separated.</comment>
+                        </shipment_to>
+                    </fields>
                 </order>
                 <order_comment>
-                     <fields>
+                    <fields>
                         <attachpdf translate="label">
                             <label>Attach Order as PDF</label>
                             <tooltip>When set to Yes, your invoice pdf document will be
@@ -114,22 +162,70 @@
                             <show_in_website>1</show_in_website>
                             <show_in_store>1</show_in_store>
                         </attachagreement>
-                         <attachfile translate="label">
-                             <label>Attach Pdf File</label>
-                             <tooltip>Choose to upload any pdf document to automatically attach to the email - for example,
+                        <attachfile_1 translate="label">
+                            <label>Attach Pdf File</label>
+                            <tooltip>Choose to upload any pdf document to automatically attach to the email - for example,
                                 your return policy, a coupon or voucher, your latest newsletter.</tooltip>
-                             <frontend_type>file</frontend_type>
-                             <upload_dir config="system/filesystem/media">pdfs</upload_dir>
-                             <backend_model>emailattachments/system_file</backend_model>
-                             <sort_order>75</sort_order>
-                             <show_in_default>1</show_in_default>
-                             <show_in_website>1</show_in_website>
-                             <show_in_store>1</show_in_store>
-                         </attachfile>
-                     </fields>
+                            <frontend_type>file</frontend_type>
+                            <upload_dir config="system/filesystem/media">pdfs</upload_dir>
+                            <backend_model>emailattachments/system_file</backend_model>
+                            <sort_order>75</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </attachfile_1>
+                        <attachfile_2 translate="label">
+                            <label>Attach Pdf File</label>
+                            <tooltip>Choose to upload any pdf document to automatically attach to the email - for example,
+                                your return policy, a coupon or voucher, your latest newsletter.</tooltip>
+                            <frontend_type>file</frontend_type>
+                            <upload_dir config="system/filesystem/media">pdfs</upload_dir>
+                            <backend_model>emailattachments/system_file</backend_model>
+                            <sort_order>75</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </attachfile_2>
+                        <attachfile_3 translate="label">
+                            <label>Attach Pdf File</label>
+                            <tooltip>Choose to upload any pdf document to automatically attach to the email - for example,
+                                your return policy, a coupon or voucher, your latest newsletter.</tooltip>
+                            <frontend_type>file</frontend_type>
+                            <upload_dir config="system/filesystem/media">pdfs</upload_dir>
+                            <backend_model>emailattachments/system_file</backend_model>
+                            <sort_order>75</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </attachfile_3>
+                        <attachfile_4 translate="label">
+                            <label>Attach Pdf File</label>
+                            <tooltip>Choose to upload any pdf document to automatically attach to the email - for example,
+                                your return policy, a coupon or voucher, your latest newsletter.</tooltip>
+                            <frontend_type>file</frontend_type>
+                            <upload_dir config="system/filesystem/media">pdfs</upload_dir>
+                            <backend_model>emailattachments/system_file</backend_model>
+                            <sort_order>75</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </attachfile_4>
+                        <attachfile_5 translate="label">
+                            <label>Attach Pdf File</label>
+                            <tooltip>Choose to upload any pdf document to automatically attach to the email - for example,
+                                your return policy, a coupon or voucher, your latest newsletter.</tooltip>
+                            <frontend_type>file</frontend_type>
+                            <upload_dir config="system/filesystem/media">pdfs</upload_dir>
+                            <backend_model>emailattachments/system_file</backend_model>
+                            <sort_order>75</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </attachfile_5>
+                    </fields>
                 </order_comment>
                 <invoice>
-                     <fields>
+                    <fields>
                         <attachpdf translate="label">
                             <label>Attach Invoice as PDF</label>
                             <tooltip>When set to Yes, your invoice pdf document will be
@@ -153,22 +249,70 @@
                             <show_in_website>1</show_in_website>
                             <show_in_store>1</show_in_store>
                         </attachagreement>
-                         <attachfile translate="label">
-                             <label>Attach Pdf File</label>
-                             <tooltip>Choose to upload any pdf document to automatically attach to the email - for example,
+                        <attachfile_1 translate="label">
+                            <label>Attach Pdf File</label>
+                            <tooltip>Choose to upload any pdf document to automatically attach to the email - for example,
                                 your return policy, a coupon or voucher, your latest newsletter.</tooltip>
-                             <frontend_type>file</frontend_type>
-                             <upload_dir config="system/filesystem/media">pdfs</upload_dir>
-                             <backend_model>emailattachments/system_file</backend_model>
-                             <sort_order>75</sort_order>
-                             <show_in_default>1</show_in_default>
-                             <show_in_website>1</show_in_website>
-                             <show_in_store>1</show_in_store>
-                         </attachfile>
-                     </fields>
+                            <frontend_type>file</frontend_type>
+                            <upload_dir config="system/filesystem/media">pdfs</upload_dir>
+                            <backend_model>emailattachments/system_file</backend_model>
+                            <sort_order>75</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </attachfile_1>
+                        <attachfile_2 translate="label">
+                            <label>Attach Pdf File</label>
+                            <tooltip>Choose to upload any pdf document to automatically attach to the email - for example,
+                                your return policy, a coupon or voucher, your latest newsletter.</tooltip>
+                            <frontend_type>file</frontend_type>
+                            <upload_dir config="system/filesystem/media">pdfs</upload_dir>
+                            <backend_model>emailattachments/system_file</backend_model>
+                            <sort_order>75</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </attachfile_2>
+                        <attachfile_3 translate="label">
+                            <label>Attach Pdf File</label>
+                            <tooltip>Choose to upload any pdf document to automatically attach to the email - for example,
+                                your return policy, a coupon or voucher, your latest newsletter.</tooltip>
+                            <frontend_type>file</frontend_type>
+                            <upload_dir config="system/filesystem/media">pdfs</upload_dir>
+                            <backend_model>emailattachments/system_file</backend_model>
+                            <sort_order>75</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </attachfile_3>
+                        <attachfile_4 translate="label">
+                            <label>Attach Pdf File</label>
+                            <tooltip>Choose to upload any pdf document to automatically attach to the email - for example,
+                                your return policy, a coupon or voucher, your latest newsletter.</tooltip>
+                            <frontend_type>file</frontend_type>
+                            <upload_dir config="system/filesystem/media">pdfs</upload_dir>
+                            <backend_model>emailattachments/system_file</backend_model>
+                            <sort_order>75</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </attachfile_4>
+                        <attachfile_5 translate="label">
+                            <label>Attach Pdf File</label>
+                            <tooltip>Choose to upload any pdf document to automatically attach to the email - for example,
+                                your return policy, a coupon or voucher, your latest newsletter.</tooltip>
+                            <frontend_type>file</frontend_type>
+                            <upload_dir config="system/filesystem/media">pdfs</upload_dir>
+                            <backend_model>emailattachments/system_file</backend_model>
+                            <sort_order>75</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </attachfile_5>
+                    </fields>
                 </invoice>
                 <invoice_comment>
-                     <fields>
+                    <fields>
                         <attachpdf translate="label">
                             <label>Attach Invoice as PDF</label>
                             <tooltip>When set to Yes, your invoice pdf document will be
@@ -192,22 +336,70 @@
                             <show_in_website>1</show_in_website>
                             <show_in_store>1</show_in_store>
                         </attachagreement>
-                         <attachfile translate="label">
-                             <label>Attach Pdf File</label>
-                             <tooltip>Choose to upload any pdf document to automatically attach to the email - for example,
+                        <attachfile_1 translate="label">
+                            <label>Attach Pdf File</label>
+                            <tooltip>Choose to upload any pdf document to automatically attach to the email - for example,
                                 your return policy, a coupon or voucher, your latest newsletter.</tooltip>
-                             <frontend_type>file</frontend_type>
-                             <upload_dir config="system/filesystem/media">pdfs</upload_dir>
-                             <backend_model>emailattachments/system_file</backend_model>
-                             <sort_order>75</sort_order>
-                             <show_in_default>1</show_in_default>
-                             <show_in_website>1</show_in_website>
-                             <show_in_store>1</show_in_store>
-                         </attachfile>
-                     </fields>
+                            <frontend_type>file</frontend_type>
+                            <upload_dir config="system/filesystem/media">pdfs</upload_dir>
+                            <backend_model>emailattachments/system_file</backend_model>
+                            <sort_order>75</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </attachfile_1>
+                        <attachfile_2 translate="label">
+                            <label>Attach Pdf File</label>
+                            <tooltip>Choose to upload any pdf document to automatically attach to the email - for example,
+                                your return policy, a coupon or voucher, your latest newsletter.</tooltip>
+                            <frontend_type>file</frontend_type>
+                            <upload_dir config="system/filesystem/media">pdfs</upload_dir>
+                            <backend_model>emailattachments/system_file</backend_model>
+                            <sort_order>75</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </attachfile_2>
+                        <attachfile_3 translate="label">
+                            <label>Attach Pdf File</label>
+                            <tooltip>Choose to upload any pdf document to automatically attach to the email - for example,
+                                your return policy, a coupon or voucher, your latest newsletter.</tooltip>
+                            <frontend_type>file</frontend_type>
+                            <upload_dir config="system/filesystem/media">pdfs</upload_dir>
+                            <backend_model>emailattachments/system_file</backend_model>
+                            <sort_order>75</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </attachfile_3>
+                        <attachfile_4 translate="label">
+                            <label>Attach Pdf File</label>
+                            <tooltip>Choose to upload any pdf document to automatically attach to the email - for example,
+                                your return policy, a coupon or voucher, your latest newsletter.</tooltip>
+                            <frontend_type>file</frontend_type>
+                            <upload_dir config="system/filesystem/media">pdfs</upload_dir>
+                            <backend_model>emailattachments/system_file</backend_model>
+                            <sort_order>75</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </attachfile_4>
+                        <attachfile_5 translate="label">
+                            <label>Attach Pdf File</label>
+                            <tooltip>Choose to upload any pdf document to automatically attach to the email - for example,
+                                your return policy, a coupon or voucher, your latest newsletter.</tooltip>
+                            <frontend_type>file</frontend_type>
+                            <upload_dir config="system/filesystem/media">pdfs</upload_dir>
+                            <backend_model>emailattachments/system_file</backend_model>
+                            <sort_order>75</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </attachfile_5>
+                    </fields>
                 </invoice_comment>
                 <shipment>
-                     <fields>
+                    <fields>
                         <attachpdf translate="label">
                             <label>Attach Packing Slip as PDF</label>
                             <tooltip>When set to Yes, your packing slip pdf document will be
@@ -231,22 +423,70 @@
                             <show_in_website>1</show_in_website>
                             <show_in_store>1</show_in_store>
                         </attachagreement>
-                         <attachfile translate="label">
-                             <label>Attach Pdf File</label>
-                             <tooltip>Choose to upload any pdf document to automatically attach to the email - for example,
+                        <attachfile_1 translate="label">
+                            <label>Attach Pdf File</label>
+                            <tooltip>Choose to upload any pdf document to automatically attach to the email - for example,
                                 your return policy, a coupon or voucher, your latest newsletter.</tooltip>
-                             <frontend_type>file</frontend_type>
-                             <upload_dir config="system/filesystem/media">pdfs</upload_dir>
-                             <backend_model>emailattachments/system_file</backend_model>
-                             <sort_order>75</sort_order>
-                             <show_in_default>1</show_in_default>
-                             <show_in_website>1</show_in_website>
-                             <show_in_store>1</show_in_store>
-                         </attachfile>
-                     </fields>
+                            <frontend_type>file</frontend_type>
+                            <upload_dir config="system/filesystem/media">pdfs</upload_dir>
+                            <backend_model>emailattachments/system_file</backend_model>
+                            <sort_order>75</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </attachfile_1>
+                        <attachfile_2 translate="label">
+                            <label>Attach Pdf File</label>
+                            <tooltip>Choose to upload any pdf document to automatically attach to the email - for example,
+                                your return policy, a coupon or voucher, your latest newsletter.</tooltip>
+                            <frontend_type>file</frontend_type>
+                            <upload_dir config="system/filesystem/media">pdfs</upload_dir>
+                            <backend_model>emailattachments/system_file</backend_model>
+                            <sort_order>75</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </attachfile_2>
+                        <attachfile_3 translate="label">
+                            <label>Attach Pdf File</label>
+                            <tooltip>Choose to upload any pdf document to automatically attach to the email - for example,
+                                your return policy, a coupon or voucher, your latest newsletter.</tooltip>
+                            <frontend_type>file</frontend_type>
+                            <upload_dir config="system/filesystem/media">pdfs</upload_dir>
+                            <backend_model>emailattachments/system_file</backend_model>
+                            <sort_order>75</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </attachfile_3>
+                        <attachfile_4 translate="label">
+                            <label>Attach Pdf File</label>
+                            <tooltip>Choose to upload any pdf document to automatically attach to the email - for example,
+                                your return policy, a coupon or voucher, your latest newsletter.</tooltip>
+                            <frontend_type>file</frontend_type>
+                            <upload_dir config="system/filesystem/media">pdfs</upload_dir>
+                            <backend_model>emailattachments/system_file</backend_model>
+                            <sort_order>75</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </attachfile_4>
+                        <attachfile_5 translate="label">
+                            <label>Attach Pdf File</label>
+                            <tooltip>Choose to upload any pdf document to automatically attach to the email - for example,
+                                your return policy, a coupon or voucher, your latest newsletter.</tooltip>
+                            <frontend_type>file</frontend_type>
+                            <upload_dir config="system/filesystem/media">pdfs</upload_dir>
+                            <backend_model>emailattachments/system_file</backend_model>
+                            <sort_order>75</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </attachfile_5>
+                    </fields>
                 </shipment>
                 <shipment_comment>
-                     <fields>
+                    <fields>
                         <attachpdf translate="label">
                             <label>Attach Packing Slip as PDF</label>
                             <tooltip>When set to Yes, your packing slip pdf document will be
@@ -270,22 +510,70 @@
                             <show_in_website>1</show_in_website>
                             <show_in_store>1</show_in_store>
                         </attachagreement>
-                         <attachfile translate="label">
-                             <label>Attach Pdf File</label>
-                             <tooltip>Choose to upload any pdf document to automatically attach to the email - for example,
+                        <attachfile_1 translate="label">
+                            <label>Attach Pdf File</label>
+                            <tooltip>Choose to upload any pdf document to automatically attach to the email - for example,
                                 your return policy, a coupon or voucher, your latest newsletter.</tooltip>
-                             <frontend_type>file</frontend_type>
-                             <upload_dir config="system/filesystem/media">pdfs</upload_dir>
-                             <backend_model>emailattachments/system_file</backend_model>
-                             <sort_order>75</sort_order>
-                             <show_in_default>1</show_in_default>
-                             <show_in_website>1</show_in_website>
-                             <show_in_store>1</show_in_store>
-                         </attachfile>
-                     </fields>
+                            <frontend_type>file</frontend_type>
+                            <upload_dir config="system/filesystem/media">pdfs</upload_dir>
+                            <backend_model>emailattachments/system_file</backend_model>
+                            <sort_order>75</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </attachfile_1>
+                        <attachfile_2 translate="label">
+                            <label>Attach Pdf File</label>
+                            <tooltip>Choose to upload any pdf document to automatically attach to the email - for example,
+                                your return policy, a coupon or voucher, your latest newsletter.</tooltip>
+                            <frontend_type>file</frontend_type>
+                            <upload_dir config="system/filesystem/media">pdfs</upload_dir>
+                            <backend_model>emailattachments/system_file</backend_model>
+                            <sort_order>75</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </attachfile_2>
+                        <attachfile_3 translate="label">
+                            <label>Attach Pdf File</label>
+                            <tooltip>Choose to upload any pdf document to automatically attach to the email - for example,
+                                your return policy, a coupon or voucher, your latest newsletter.</tooltip>
+                            <frontend_type>file</frontend_type>
+                            <upload_dir config="system/filesystem/media">pdfs</upload_dir>
+                            <backend_model>emailattachments/system_file</backend_model>
+                            <sort_order>75</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </attachfile_3>
+                        <attachfile_4 translate="label">
+                            <label>Attach Pdf File</label>
+                            <tooltip>Choose to upload any pdf document to automatically attach to the email - for example,
+                                your return policy, a coupon or voucher, your latest newsletter.</tooltip>
+                            <frontend_type>file</frontend_type>
+                            <upload_dir config="system/filesystem/media">pdfs</upload_dir>
+                            <backend_model>emailattachments/system_file</backend_model>
+                            <sort_order>75</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </attachfile_4>
+                        <attachfile_5 translate="label">
+                            <label>Attach Pdf File</label>
+                            <tooltip>Choose to upload any pdf document to automatically attach to the email - for example,
+                                your return policy, a coupon or voucher, your latest newsletter.</tooltip>
+                            <frontend_type>file</frontend_type>
+                            <upload_dir config="system/filesystem/media">pdfs</upload_dir>
+                            <backend_model>emailattachments/system_file</backend_model>
+                            <sort_order>75</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </attachfile_5>
+                    </fields>
                 </shipment_comment>
                 <creditmemo>
-                     <fields>
+                    <fields>
                         <attachpdf translate="label">
                             <label>Attach Credit Memo as PDF</label>
                             <tooltip>When set to Yes, your packing slip pdf document will be
@@ -309,22 +597,70 @@
                             <show_in_website>1</show_in_website>
                             <show_in_store>1</show_in_store>
                         </attachagreement>
-                         <attachfile translate="label">
-                             <label>Attach Pdf File</label>
-                             <tooltip>Choose to upload any pdf document to automatically attach to the email - for example,
+                        <attachfile_1 translate="label">
+                            <label>Attach Pdf File</label>
+                            <tooltip>Choose to upload any pdf document to automatically attach to the email - for example,
                                 your return policy, a coupon or voucher, your latest newsletter.</tooltip>
-                             <frontend_type>file</frontend_type>
-                             <upload_dir config="system/filesystem/media">pdfs</upload_dir>
-                             <backend_model>emailattachments/system_file</backend_model>
-                             <sort_order>75</sort_order>
-                             <show_in_default>1</show_in_default>
-                             <show_in_website>1</show_in_website>
-                             <show_in_store>1</show_in_store>
-                         </attachfile>
-                     </fields>
+                            <frontend_type>file</frontend_type>
+                            <upload_dir config="system/filesystem/media">pdfs</upload_dir>
+                            <backend_model>emailattachments/system_file</backend_model>
+                            <sort_order>75</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </attachfile_1>
+                        <attachfile_2 translate="label">
+                            <label>Attach Pdf File</label>
+                            <tooltip>Choose to upload any pdf document to automatically attach to the email - for example,
+                                your return policy, a coupon or voucher, your latest newsletter.</tooltip>
+                            <frontend_type>file</frontend_type>
+                            <upload_dir config="system/filesystem/media">pdfs</upload_dir>
+                            <backend_model>emailattachments/system_file</backend_model>
+                            <sort_order>75</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </attachfile_2>
+                        <attachfile_3 translate="label">
+                            <label>Attach Pdf File</label>
+                            <tooltip>Choose to upload any pdf document to automatically attach to the email - for example,
+                                your return policy, a coupon or voucher, your latest newsletter.</tooltip>
+                            <frontend_type>file</frontend_type>
+                            <upload_dir config="system/filesystem/media">pdfs</upload_dir>
+                            <backend_model>emailattachments/system_file</backend_model>
+                            <sort_order>75</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </attachfile_3>
+                        <attachfile_4 translate="label">
+                            <label>Attach Pdf File</label>
+                            <tooltip>Choose to upload any pdf document to automatically attach to the email - for example,
+                                your return policy, a coupon or voucher, your latest newsletter.</tooltip>
+                            <frontend_type>file</frontend_type>
+                            <upload_dir config="system/filesystem/media">pdfs</upload_dir>
+                            <backend_model>emailattachments/system_file</backend_model>
+                            <sort_order>75</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </attachfile_4>
+                        <attachfile_5 translate="label">
+                            <label>Attach Pdf File</label>
+                            <tooltip>Choose to upload any pdf document to automatically attach to the email - for example,
+                                your return policy, a coupon or voucher, your latest newsletter.</tooltip>
+                            <frontend_type>file</frontend_type>
+                            <upload_dir config="system/filesystem/media">pdfs</upload_dir>
+                            <backend_model>emailattachments/system_file</backend_model>
+                            <sort_order>75</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </attachfile_5>
+                    </fields>
                 </creditmemo>
                 <creditmemo_comment>
-                     <fields>
+                    <fields>
                         <attachpdf translate="label">
                             <label>Attach Credit Memo as PDF</label>
                             <tooltip>When set to Yes, your packing slip pdf document will be
@@ -348,24 +684,69 @@
                             <show_in_website>1</show_in_website>
                             <show_in_store>1</show_in_store>
                         </attachagreement>
-                         <attachfile translate="label">
-                             <label>Attach Pdf File</label>
-                             <tooltip>Choose to upload any pdf document to automatically attach to the email - for example,
+                        <attachfile_1 translate="label">
+                            <label>Attach Pdf File</label>
+                            <tooltip>Choose to upload any pdf document to automatically attach to the email - for example,
                                 your return policy, a coupon or voucher, your latest newsletter.</tooltip>
-                             <frontend_type>file</frontend_type>
-                             <upload_dir config="system/filesystem/media">pdfs</upload_dir>
-                             <backend_model>emailattachments/system_file</backend_model>
-                             <sort_order>75</sort_order>
-                             <show_in_default>1</show_in_default>
-                             <show_in_website>1</show_in_website>
-                             <show_in_store>1</show_in_store>
-                         </attachfile>
-                     </fields>
+                            <frontend_type>file</frontend_type>
+                            <upload_dir config="system/filesystem/media">pdfs</upload_dir>
+                            <backend_model>emailattachments/system_file</backend_model>
+                            <sort_order>75</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </attachfile_1>
+                        <attachfile_2 translate="label">
+                            <label>Attach Pdf File</label>
+                            <tooltip>Choose to upload any pdf document to automatically attach to the email - for example,
+                                your return policy, a coupon or voucher, your latest newsletter.</tooltip>
+                            <frontend_type>file</frontend_type>
+                            <upload_dir config="system/filesystem/media">pdfs</upload_dir>
+                            <backend_model>emailattachments/system_file</backend_model>
+                            <sort_order>75</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </attachfile_2>
+                        <attachfile_3 translate="label">
+                            <label>Attach Pdf File</label>
+                            <tooltip>Choose to upload any pdf document to automatically attach to the email - for example,
+                                your return policy, a coupon or voucher, your latest newsletter.</tooltip>
+                            <frontend_type>file</frontend_type>
+                            <upload_dir config="system/filesystem/media">pdfs</upload_dir>
+                            <backend_model>emailattachments/system_file</backend_model>
+                            <sort_order>75</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </attachfile_3>
+                        <attachfile_4 translate="label">
+                            <label>Attach Pdf File</label>
+                            <tooltip>Choose to upload any pdf document to automatically attach to the email - for example,
+                                your return policy, a coupon or voucher, your latest newsletter.</tooltip>
+                            <frontend_type>file</frontend_type>
+                            <upload_dir config="system/filesystem/media">pdfs</upload_dir>
+                            <backend_model>emailattachments/system_file</backend_model>
+                            <sort_order>75</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </attachfile_4>
+                        <attachfile_5 translate="label">
+                            <label>Attach Pdf File</label>
+                            <tooltip>Choose to upload any pdf document to automatically attach to the email - for example,
+                                your return policy, a coupon or voucher, your latest newsletter.</tooltip>
+                            <frontend_type>file</frontend_type>
+                            <upload_dir config="system/filesystem/media">pdfs</upload_dir>
+                            <backend_model>emailattachments/system_file</backend_model>
+                            <sort_order>75</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </attachfile_5>
+                    </fields>
                 </creditmemo_comment>
             </groups>
         </sales_email>
-   </sections>
+    </sections>
 </config>
-
-
-
