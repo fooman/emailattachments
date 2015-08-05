@@ -10,7 +10,6 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-
 class Fooman_EmailAttachments_Model_Order_Pdf_Order extends Mage_Sales_Model_Order_Pdf_Invoice
 {
 
@@ -21,7 +20,7 @@ class Fooman_EmailAttachments_Model_Order_Pdf_Order extends Mage_Sales_Model_Ord
      *
      * @return Zend_Pdf
      */
-    public function getPdf ($orders = array())
+    public function getPdf($orders = array())
     {
         $this->_beforeGetPdf();
         $this->_initRenderer('order');
@@ -33,7 +32,7 @@ class Fooman_EmailAttachments_Model_Order_Pdf_Order extends Mage_Sales_Model_Ord
         $currentStoreId = Mage::app()->getStore()->getId();
         foreach ($orders as $order) {
             //could be order id
-            if ( !$order instanceof Mage_Sales_Model_Order) {
+            if (!$order instanceof Mage_Sales_Model_Order) {
                 $order = Mage::getModel('sales/order')->load($order);
             }
 
@@ -58,27 +57,16 @@ class Fooman_EmailAttachments_Model_Order_Pdf_Order extends Mage_Sales_Model_Ord
                 true
             );
 
-            $page->setFillColor(new Zend_Pdf_Color_GrayScale(1));
-            $this->_setFontRegular($page);
-
-            /* Add table */
-            $page->setFillColor(new Zend_Pdf_Color_RGB(0.93, 0.92, 0.92));
-            $page->setLineColor(new Zend_Pdf_Color_GrayScale(0.5));
-            $page->setLineWidth(0.5);
-
-            $page->drawRectangle(25, $this->y, 570, $this->y - 15);
-            $this->y -=10;
-
-            $page = $this->_printTableHead($page);
+            $this->_printTableHead($page);
 
             $page->setFillColor(new Zend_Pdf_Color_GrayScale(0));
 
-            $page = $this->_printItems($order, $page);
+            $this->_printItems($order, $page);
 
             /* Add totals */
             $order->setOrder($order);
             $page = $this->insertTotals($page, $order);
-            $page = $this->_printComments($order, $page);
+            $this->_printComments($order, $page);
 
             if ($order->getStoreId()) {
                 Mage::app()->getLocale()->revert();
@@ -87,6 +75,7 @@ class Fooman_EmailAttachments_Model_Order_Pdf_Order extends Mage_Sales_Model_Ord
 
         $this->_afterGetPdf();
         Mage::app()->setCurrentStore($currentStoreId);
+
         return $pdf;
     }
 
@@ -108,7 +97,6 @@ class Fooman_EmailAttachments_Model_Order_Pdf_Order extends Mage_Sales_Model_Ord
             $item->setOrderItem($item);
             $page = $this->_drawItem($item, $page, $order);
         }
-        return $page;
     }
 
     protected function _printComments($order, Zend_Pdf_Page $page)
@@ -135,11 +123,33 @@ class Fooman_EmailAttachments_Model_Order_Pdf_Order extends Mage_Sales_Model_Ord
                 $page->drawText(implode(' ', $currentLine), 35, $this->y, 'UTF-8');
             }
         }
-        return $page;
     }
 
+    /**
+     * Draw header for item table
+     *
+     * use _drawHeader for Magento 1.7+
+     * maintain compatibility with Magento 1.5
+     *
+     * @param $page
+     */
     protected function _printTableHead($page)
     {
+        if (method_exists($this, '_drawHeader')) {
+            return parent::_drawHeader($page);
+        }
+
+        $page->setFillColor(new Zend_Pdf_Color_GrayScale(1));
+        $this->_setFontRegular($page);
+
+        /* Add table */
+        $page->setFillColor(new Zend_Pdf_Color_RGB(0.93, 0.92, 0.92));
+        $page->setLineColor(new Zend_Pdf_Color_GrayScale(0.5));
+        $page->setLineWidth(0.5);
+
+        $page->drawRectangle(25, $this->y, 570, $this->y - 15);
+        $this->y -= 10;
+
         /* Add table head */
         $page->setFillColor(new Zend_Pdf_Color_RGB(0.4, 0.4, 0.4));
         $page->drawText(Mage::helper('sales')->__('Products'), 35, $this->y, 'UTF-8');
@@ -149,7 +159,6 @@ class Fooman_EmailAttachments_Model_Order_Pdf_Order extends Mage_Sales_Model_Ord
         $page->drawText(Mage::helper('sales')->__('Tax'), 480, $this->y, 'UTF-8');
         $page->drawText(Mage::helper('sales')->__('Subtotal'), 535, $this->y, 'UTF-8');
 
-        $this->y -=15;
-        return $page;
+        $this->y -= 15;
     }
 }
