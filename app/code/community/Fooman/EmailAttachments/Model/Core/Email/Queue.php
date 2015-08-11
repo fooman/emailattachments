@@ -68,7 +68,6 @@ class Fooman_EmailAttachments_Model_Core_Email_Queue extends Mage_Core_Model_Ema
                     Mage::dispatchEvent(
                         'fooman_emailattachments_before_send_queue',
                         array(
-                            'update'         => $message->getEventType() == 'update_order',
                             'mailer'         => $mailer,
                             'message'        => $message,
                             'mail_transport' => $mailTransport
