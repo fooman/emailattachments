@@ -285,7 +285,7 @@ class Fooman_EmailAttachments_Model_Observer
         if ($message->getEntityType() == 'order') {
             $order = Mage::getModel('sales/order')->load($message->getEntityId());
             $storeId = $order->getStoreId();
-            $update = false;
+            $update = $message->getEventType() == 'update_order';
             $configPath = $update ? 'order_comment' : 'order';
 
             if (Mage::getStoreConfig('sales_email/' . $configPath . '/attachpdf', $storeId)) {
@@ -303,7 +303,7 @@ class Fooman_EmailAttachments_Model_Observer
             for ($i = 0; $i <= 5; $i++) {
                 $fileAttachment = Mage::getStoreConfig('sales_email/'.$configPath.'/attachfile_'.$i, $storeId);
                 if ($fileAttachment) {
-                    Mage::helper('emailattachments')->addFileAttachment($fileAttachment, $mailTemplate);
+                    Mage::helper('emailattachments')->addFileAttachment($fileAttachment, $mailer);
                 }
             }
         }

@@ -71,7 +71,6 @@ class Fooman_EmailAttachments_Model_Core_Email_Queue extends Mage_Core_Model_Ema
                             'mailer'         => $mailer,
                             'message'        => $message,
                             'mail_transport' => $mailTransport
-
                         )
                     );
                     //END EDIT
