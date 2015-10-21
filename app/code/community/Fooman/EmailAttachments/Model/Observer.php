@@ -275,7 +275,7 @@ class Fooman_EmailAttachments_Model_Observer
         if ($message->getEntityType() == 'order' && !$message->getProcessedAt()) {
             $order = Mage::getModel('sales/order')->load($message->getEntityId());
             $storeId = $order->getStoreId();
-            $update = false;
+            $update = $message->getEventType() == 'update_order';
             $configPath = $update ? 'order_comment' : 'order';
 
             if (Mage::getStoreConfig('sales_email/' . $configPath . '/attachpdf', $storeId)) {
