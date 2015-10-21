@@ -1,5 +1,5 @@
 <?php
-require_once BP.'/app/code/core/Mage/Adminhtml/controllers/Sales/OrderController.php';
+require_once BP . '/app/code/core/Mage/Adminhtml/controllers/Sales/OrderController.php';
 
 /**
  * @author     Kristof Ringleff
@@ -10,7 +10,7 @@ require_once BP.'/app/code/core/Mage/Adminhtml/controllers/Sales/OrderController
  * file that was distributed with this source code.
  */
 
-class Fooman_EmailAttachments_Admin_OrderController extends Mage_Adminhtml_Sales_OrderController
+class Fooman_EmailAttachments_Adminhtml_EmailAttachments_OrderController extends Mage_Adminhtml_Sales_OrderController
 {
 
     /**

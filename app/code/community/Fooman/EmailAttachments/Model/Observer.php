@@ -8,7 +8,6 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-
 class Fooman_EmailAttachments_Model_Observer
 {
 
@@ -46,10 +45,10 @@ class Fooman_EmailAttachments_Model_Observer
             ) {
                 $block->addItem(
                     'fooman_pdforders_order', array(
-                        'label'=> Mage::helper('emailattachments')->__('Print Orders'),
-                        'url'  => Mage::helper('adminhtml')->getUrl(
-                            'emailattachments/admin_order/pdforders',
-                            Mage::app()->getStore()->isCurrentlySecure() ? array('_secure'=> 1) : array()
+                        'label' => Mage::helper('emailattachments')->__('Print Orders'),
+                        'url'   => Mage::helper('adminhtml')->getUrl(
+                            'adminhtml/EmailAttachments_order/pdforders',
+                            Mage::app()->getStore()->isCurrentlySecure() ? array('_secure' => 1) : array()
                         ),
                     )
                 );
@@ -92,7 +91,6 @@ class Fooman_EmailAttachments_Model_Observer
                 Mage::helper('emailattachments')->addFileAttachment($fileAttachment, $mailTemplate);
             }
         }
-
     }
 
     public function getOrderAttachmentName($order)
@@ -189,7 +187,7 @@ class Fooman_EmailAttachments_Model_Observer
      *
      * @param $observer
      */
-    public function beforeSendShipment ($observer)
+    public function beforeSendShipment($observer)
     {
         $update = $observer->getEvent()->getUpdate();
         $mailTemplate = $observer->getEvent()->getTemplate();
@@ -238,7 +236,7 @@ class Fooman_EmailAttachments_Model_Observer
      *
      * @param $observer
      */
-    public function beforeSendCreditmemo ($observer)
+    public function beforeSendCreditmemo($observer)
     {
         $update = $observer->getEvent()->getUpdate();
         $mailTemplate = $observer->getEvent()->getTemplate();
@@ -272,17 +270,9 @@ class Fooman_EmailAttachments_Model_Observer
         return Mage::helper('emailattachments')->getCreditmemoAttachmentName($creditmemo);
     }
 
-    /**
-     * listen to order email send event from queue to attach pdfs and agreements
-     *
-     * @param $observer
-     */
-    public function beforeSendQueuedOrder($observer)
+    protected function _processSendQueueEvent($mailer, $message)
     {
-        $mailer = $observer->getEvent()->getMailer();
-        $message = $observer->getEvent()->getMessage();
-
-        if ($message->getEntityType() == 'order') {
+        if ($message->getEntityType() == 'order' && !$message->getProcessedAt()) {
             $order = Mage::getModel('sales/order')->load($message->getEntityId());
             $storeId = $order->getStoreId();
             $update = false;
@@ -297,16 +287,31 @@ class Fooman_EmailAttachments_Model_Observer
             }
 
             if (Mage::getStoreConfig('sales_email/' . $configPath . '/attachagreement', $storeId)) {
-                 Mage::helper('emailattachments')->addAgreements($order->getStoreId(), $mailer);
+                Mage::helper('emailattachments')->addAgreements($order->getStoreId(), $mailer);
             }
 
             for ($i = 0; $i <= 5; $i++) {
                 $fileAttachment = Mage::getStoreConfig('sales_email/'.$configPath.'/attachfile_'.$i, $storeId);
                 if ($fileAttachment) {
-                    Mage::helper('emailattachments')->addFileAttachment($fileAttachment, $mailTemplate);
+                    Mage::helper('emailattachments')->addFileAttachment($fileAttachment, $mailer);
                 }
             }
         }
+    }
+
+    /**
+     * listen to order email send event from queue to attach pdfs and agreements
+     *
+     * @param $observer
+     */
+    public function beforeSendQueuedOrder($observer)
+    {
+        $mailer = $observer->getEvent()->getMailer()
+            ? $observer->getEvent()->getMailer()
+            : $observer->getEvent()->getMail();
+        $message = $observer->getEvent()->getMessage();
+
+        $this->_processSendQueueEvent($mailer, $message);
     }
 
 }

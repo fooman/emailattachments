@@ -187,7 +187,7 @@ class Fooman_EmailAttachments_Helper_Data extends Mage_Core_Helper_Abstract
     protected function getPrintUrl($block)
     {
         return $block->getUrl(
-            'emailattachments/admin_order/print',
+            'adminhtml/EmailAttachments_order/print',
             array('order_id' => $block->getOrder()->getId())
         );
     }

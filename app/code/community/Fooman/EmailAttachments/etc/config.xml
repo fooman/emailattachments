@@ -2,7 +2,7 @@
 <config>
     <modules>
         <Fooman_EmailAttachments>
-            <version>0.10.5</version>
+            <version>0.11.0</version>
             <depends>
             </depends>
         </Fooman_EmailAttachments>
@@ -30,6 +30,7 @@
             <order>
                 <default>sales/order_pdf_items_invoice_default</default>
                 <grouped>sales/order_pdf_items_invoice_grouped</grouped>
+                <bundle>emailattachments/order_pdf_bundleItems</bundle>
             </order>
         </pdf>
         <helpers>
@@ -47,6 +48,15 @@
                     </fooman_emailattachments_before_send_queue>
                 </observers>
             </fooman_emailattachments_before_send_queue>
+            <aschroder_smtppro_queue_before_send>
+                <observers>
+                    <fooman_emailattachments_before_send_queue>
+                        <type>singleton</type>
+                        <class>emailattachments/observer</class>
+                        <method>beforeSendQueuedOrder</method>
+                    </fooman_emailattachments_before_send_queue>
+                </observers>
+            </aschroder_smtppro_queue_before_send>
             <fooman_emailattachments_before_send_order>
                 <observers>
                     <fooman_emailattachments_before_send_order>
@@ -123,13 +133,13 @@
     </adminhtml>
     <admin>
         <routers>
-            <emailattachments>
-                <use>admin</use>
+            <adminhtml>
                 <args>
-                    <module>Fooman_EmailAttachments</module>
-                    <frontName>emailattachments</frontName>
+                    <modules>
+                        <emailattachments after="Mage_Adminhtml">Fooman_EmailAttachments_Adminhtml</emailattachments>
+                    </modules>
                 </args>
-            </emailattachments>
+            </adminhtml>
         </routers>
     </admin>
     <default>
@@ -180,7 +190,7 @@
     <phpunit>
         <suite>
             <modules>
-                <Fooman_EmailAttachments />
+                <Fooman_EmailAttachments/>
             </modules>
         </suite>
     </phpunit>

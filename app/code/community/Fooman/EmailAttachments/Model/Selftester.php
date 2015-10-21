@@ -54,10 +54,13 @@ class Fooman_EmailAttachments_Model_Selftester extends Fooman_Common_Model_Selft
             'app/code/community/Fooman/EmailAttachments/Block/Adminhtml/Extensioninfo.php',
             'app/code/community/Fooman/EmailAttachments/LICENSE.txt',
             'app/code/community/Fooman/EmailAttachments/controllers/Customer/OrderController.php',
-            'app/code/community/Fooman/EmailAttachments/controllers/Admin/OrderController.php',
+            'app/code/community/Fooman/EmailAttachments/controllers/Adminhtml/EmailAttachments/OrderController.php',
             'app/code/community/Fooman/EmailAttachments/Model/Core/App/Emulation.php',
             'app/code/community/Fooman/EmailAttachments/Model/Core/Email/Template/Mailer.php',
             'app/code/community/Fooman/EmailAttachments/Model/Core/Email/Queue.php',
+            'app/code/community/Fooman/EmailAttachments/Model/Core/Email/Queue/Compatibility.php',
+            'app/code/community/Fooman/EmailAttachments/Model/Core/Email/Queue/Fooman.php',
+            'app/code/community/Fooman/EmailAttachments/Model/Order/Pdf/BundleItems.php',
             'app/code/community/Fooman/EmailAttachments/Model/Order/Pdf/Order.php',
             'app/code/community/Fooman/EmailAttachments/Model/Selftester.php',
             'app/code/community/Fooman/EmailAttachments/Model/Observer.php',
@@ -105,6 +108,15 @@ class Fooman_EmailAttachments_Model_Selftester extends Fooman_Common_Model_Selft
         return file_exists(
             Mage::getConfig()->getModuleDir('', 'Mage_Core') . DS . 'Model' . DS . 'Email' . DS . 'Queue.php'
         );
+    }
+
+    public function _needsCron()
+    {
+        if ($this->_hasQueueSupport()) {
+            return true;
+        } else {
+            return false;
+        }
     }
 }
 
