@@ -11,6 +11,12 @@ if (Mage::helper('core')->isModuleEnabled('Aschroder_SMTPPro')
     {
 
     }
+} else if (Mage::helper('core')->isModuleEnabled('Aschroder_Email')) {
+    class Fooman_EmailAttachments_Model_Core_Email_Queue_Compatibility
+        extends Aschroder_Email_Model_Email_Queue
+    {
+
+    }
 } else {
     class Fooman_EmailAttachments_Model_Core_Email_Queue_Compatibility
         extends Fooman_EmailAttachments_Model_Core_Email_Queue_Fooman
@@ -18,5 +24,3 @@ if (Mage::helper('core')->isModuleEnabled('Aschroder_SMTPPro')
 
     }
 }
-
-
