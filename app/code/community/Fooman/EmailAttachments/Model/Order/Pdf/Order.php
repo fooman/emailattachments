@@ -41,6 +41,12 @@ class Fooman_EmailAttachments_Model_Order_Pdf_Order extends Mage_Sales_Model_Ord
                 Mage::app()->getLocale()->emulate($order->getStoreId());
                 Mage::app()->setCurrentStore($order->getStoreId());
             }
+
+			// Change to AdminHTML 
+			// https://github.com/Adyen/magento/issues/182#issuecomment-72607999
+			$currentDesignArea = Mage::getDesign()->getArea();
+			Mage::getDesign()->setArea(Mage_Core_Model_App_Area::AREA_ADMINHTML);
+
             $page = $pdf->newPage(Zend_Pdf_Page::SIZE_A4);
             $pdf->pages[] = $page;
 
@@ -75,6 +81,8 @@ class Fooman_EmailAttachments_Model_Order_Pdf_Order extends Mage_Sales_Model_Ord
 
         $this->_afterGetPdf();
         Mage::app()->setCurrentStore($currentStoreId);
+
+        Mage::getDesign()->setArea($currentDesignArea);
 
         return $pdf;
     }
