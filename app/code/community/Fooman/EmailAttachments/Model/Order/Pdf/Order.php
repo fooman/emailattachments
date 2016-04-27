@@ -62,6 +62,7 @@ class Fooman_EmailAttachments_Model_Order_Pdf_Order extends Mage_Sales_Model_Ord
             $page->setFillColor(new Zend_Pdf_Color_GrayScale(0));
 
             $this->_printItems($order, $page);
+            $page = end($pdf->pages);
 
             /* Add totals */
             $order->setOrder($order);
