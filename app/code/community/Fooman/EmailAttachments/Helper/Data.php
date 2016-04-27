@@ -28,7 +28,7 @@ class Fooman_EmailAttachments_Helper_Data extends Mage_Core_Helper_Abstract
         try {
             $this->debug('ADDING ATTACHMENT: ' . $name);
             $file = $pdf->render();
-            if (!($mailObj instanceof Zend_Mail)) {
+            if (!($mailObj instanceof Zend_Mail) && !($mailObj instanceof Mandrill_Message)) {
                 $mailObj = $mailObj->getMail();
             }
             $mailObj->createAttachment(
@@ -58,7 +58,7 @@ class Fooman_EmailAttachments_Helper_Data extends Mage_Core_Helper_Abstract
     {
         try {
             $this->debug('ADDING ATTACHMENT: ' . $file);
-            if (!($mailObj instanceof Zend_Mail)) {
+            if (!($mailObj instanceof Zend_Mail) && !($mailObj instanceof Mandrill_Message)) {
                 $mailObj = $mailObj->getMail();
             }
             if (method_exists($mailObj, 'setType')) {

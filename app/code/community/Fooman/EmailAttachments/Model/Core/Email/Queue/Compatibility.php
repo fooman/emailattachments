@@ -11,6 +11,17 @@ if (Mage::helper('core')->isModuleEnabled('Aschroder_SMTPPro')
     {
 
     }
+} elseif (Mage::helper('core')->isModuleEnabled('Ebizmarts_Mandrill')
+    && version_compare(
+        (string)Mage::getConfig()->getNode()->modules->Ebizmarts_Mandrill->version,
+        '1.2.2', '>='
+    )
+) {
+    class Fooman_EmailAttachments_Model_Core_Email_Queue_Compatibility
+        extends Fooman_EmailAttachments_Model_Core_Email_Queue_Mandrill
+    {
+
+    }
 } else {
     class Fooman_EmailAttachments_Model_Core_Email_Queue_Compatibility
         extends Fooman_EmailAttachments_Model_Core_Email_Queue_Fooman
@@ -18,5 +29,3 @@ if (Mage::helper('core')->isModuleEnabled('Aschroder_SMTPPro')
 
     }
 }
-
-

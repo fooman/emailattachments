@@ -58,6 +58,7 @@ class Fooman_EmailAttachments_Model_Selftester extends Fooman_Common_Model_Selft
             'app/code/community/Fooman/EmailAttachments/Model/Core/App/Emulation.php',
             'app/code/community/Fooman/EmailAttachments/Model/Core/Email/Template/Mailer.php',
             'app/code/community/Fooman/EmailAttachments/Model/Core/Email/Queue.php',
+            'app/code/community/Fooman/EmailAttachments/Model/Core/Email/Queue/Mandrill.php',
             'app/code/community/Fooman/EmailAttachments/Model/Core/Email/Queue/Compatibility.php',
             'app/code/community/Fooman/EmailAttachments/Model/Core/Email/Queue/Fooman.php',
             'app/code/community/Fooman/EmailAttachments/Model/Order/Pdf/BundleItems.php',
