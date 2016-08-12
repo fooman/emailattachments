@@ -77,19 +77,13 @@ class Fooman_EmailAttachments_Model_Core_Email_Queue_Fooman extends Mage_Core_Mo
                     );
                     //END EDIT
                     $mailer->send();
-                    unset($mailer);
-                    $message->setProcessedAt(Varien_Date::formatDate(true));
-                    $message->save();
-                }
-                catch (Exception $e) {
-                    unset($mailer);
-                    $oldDevMode = Mage::getIsDeveloperMode();
-                    Mage::setIsDeveloperMode(true);
+                } catch (Exception $e) {
                     Mage::logException($e);
-                    Mage::setIsDeveloperMode($oldDevMode);
-
-                    return false;
                 }
+
+                unset($mailer);
+                $message->setProcessedAt(Varien_Date::formatDate(true));
+                $message->save();
             }
         }
 
