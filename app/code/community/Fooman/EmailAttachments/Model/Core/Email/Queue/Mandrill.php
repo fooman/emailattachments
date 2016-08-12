@@ -11,6 +11,8 @@
  */
 class Fooman_EmailAttachments_Model_Core_Email_Queue_Mandrill extends Mage_Core_Model_Email_Queue
 {
+    protected $_mail = null;
+
     /**
      * Send all messages in a queue via manrill
      *
@@ -30,6 +32,7 @@ class Fooman_EmailAttachments_Model_Core_Email_Queue_Mandrill extends Mage_Core_
         /** @var $message Mage_Core_Model_Email_Queue */
         foreach ($collection as $message) {
             if ($message->getId()) {
+                $this->_mail = null;
                 $parameters = new Varien_Object($message->getMessageParameters());
                 $mailer = $this->getMail();
 
