@@ -121,10 +121,10 @@ class Fooman_EmailAttachments_Model_Observer
         if ($emails && Mage::getStoreConfig('sales_email/' . $configPath . '/sendpackingslip', $storeId)) {
             $template = Mage::getStoreConfig(self::XML_PATH_ORDER_PACKINGSLIP_TEMPLATE, $storeId);
             $pdf = Mage::getModel('sales/order_pdf_shipment')->getPdf(array(), array($order->getId()));
-            Mage::helper('emailattachments')->addAttachment(
-                $pdf, $mailTemplate, Mage::helper('sales')->__('Shipment') . "_" . $order->getIncrementId()
-            );
             foreach ($emails as $email) {
+                Mage::helper('emailattachments')->addAttachment(
+                    $pdf, $mailTemplate, Mage::helper('sales')->__('Shipment') . "_" . $order->getIncrementId()
+                );
                 $mailTemplate->setDesignConfig(array('area' => 'frontend', 'store' => $storeId))
                     ->sendTransactional(
                         $template,
@@ -137,8 +137,6 @@ class Fooman_EmailAttachments_Model_Observer
                     );
             }
         }
-
-
     }
 
     /**

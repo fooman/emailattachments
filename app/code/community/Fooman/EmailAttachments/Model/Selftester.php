@@ -38,6 +38,11 @@ class Fooman_EmailAttachments_Model_Selftester extends Fooman_Common_Model_Selft
         return $rewrites;
     }
 
+    public function _checkMalformedFiles()
+    {
+        return true;
+    }
+
     /**
      * list of extension files
      *

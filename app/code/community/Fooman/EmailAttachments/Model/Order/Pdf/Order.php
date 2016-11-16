@@ -126,10 +126,12 @@ class Fooman_EmailAttachments_Model_Order_Pdf_Order extends Mage_Sales_Model_Ord
                 $leftToPrint = array();
                 while ($this->widthForStringUsingFontSize(
                         implode(' ', $currentLine), $page->getFont(), $page->getFontSize()
-                    ) > $availableWidth) {
+                    ) > $availableWidth - 60) {
                     $leftToPrint[] = array_pop($currentLine);
                 }
+                $leftToPrint = array_reverse($leftToPrint);
                 $page->drawText(implode(' ', $currentLine), 35, $this->y, 'UTF-8');
+                $this->y -= 15;
             }
         }
     }

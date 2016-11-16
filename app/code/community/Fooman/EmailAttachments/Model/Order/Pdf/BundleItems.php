@@ -29,6 +29,7 @@ class Fooman_EmailAttachments_Model_Order_Pdf_BundleItems extends Mage_Bundle_Mo
         if ($_items) {
             foreach ($_items as $_item) {
                 $parentItem = $_item->getParentItem();
+                $_item->setQty($_item->getQtyOrdered());
                 $_item->setOrderItem($_item);
                 if ($parentItem) {
                     $_itemsArray[$parentItem->getId()][$_item->getId()] = $_item;
