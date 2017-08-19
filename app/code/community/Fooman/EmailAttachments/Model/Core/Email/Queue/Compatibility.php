@@ -11,6 +11,12 @@ if (Mage::helper('core')->isModuleEnabled('Aschroder_SMTPPro')
     {
 
     }
+} elseif (Mage::helper('core')->isModuleEnabled('Ebizmarts_MailChimp')) {
+    class Fooman_EmailAttachments_Model_Core_Email_Queue_Compatibility
+        extends Ebizmarts_MailChimp_Model_Email_Queue
+    {
+
+    }
 } elseif (Mage::helper('core')->isModuleEnabled('Ebizmarts_Mandrill')
     && version_compare(
         (string)Mage::getConfig()->getNode()->modules->Ebizmarts_Mandrill->version,
