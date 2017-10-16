@@ -2,7 +2,7 @@ Fooman Email Attachments
 ===================
 
 ### Installation Instructions
-To install the extension, follow the steps in [The Ultimate Guide to Installing Magento Extensions](http://cdn.fooman.co.nz/media/custom/upload/TheUltimateGuidetoInstallingMagentoExtensions.pdf) and [Fooman Email Attachments User Manual](http://cdn.fooman.co.nz/media/custom/upload/UserManual-FoomanEmailAttachments.pdf).
+To install the extension, follow the steps in [The Installation Guide](http://magento1-support.fooman.co.nz/article/354-installing-fooman-email-attachments).
 
 ### Installation Options
 
