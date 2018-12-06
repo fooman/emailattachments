@@ -200,7 +200,9 @@ class Fooman_EmailAttachments_Model_Observer
             Mage::helper('emailattachments')->addAttachment(
                 $pdf, $mailTemplate, $this->getShipmentAttachmentName($shipment)
             );
-            /*
+        }
+
+        if (Mage::getStoreConfig('sales_email/' . $configPath . '/attachinvoicepdf', $storeId)) {
             $pdf = Mage::getModel('sales/order_pdf_invoice')->getPdf(
                 $shipment->getOrder()->getInvoiceCollection()
             );
@@ -209,7 +211,6 @@ class Fooman_EmailAttachments_Model_Observer
                 $mailTemplate,
                 Mage::helper('sales')->__('Invoices for Order') . "_" . $shipment->getOrder()->getIncrementId()
             );
-            */
         }
 
         if (Mage::getStoreConfig('sales_email/' . $configPath . '/attachagreement', $storeId)) {
