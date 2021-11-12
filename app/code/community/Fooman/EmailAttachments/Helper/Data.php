@@ -233,7 +233,7 @@ class Fooman_EmailAttachments_Helper_Data extends Mage_Core_Helper_Abstract
 
     public function getInvoiceAttachmentName($invoice)
     {
-        return Mage::helper('sales')->__('Invoice') . "_" . $invoice->getIncrementId();
+        return $invoice->getIncrementId() . "_" . $invoice->getOrderIncrementId();
     }
 
     public function getShipmentAttachmentName($shipment)
